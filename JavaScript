@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Animation</title>
+    <script type="text/javascript">
+        var imgObj = null;
+        var animate;
+        function init() {
+            imgObj = document.getElementById('butter');
+            imgObj.style.position = 'relative';
+            imgObj.style.left = '0px';
+        }
+        function moveRight() {
+            imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+            animate = setTimeout(moveRight, 20);
+        }
+        function stop() {
+            clearTimeout(animate);
+            imgObj.style.left = '0px';
+        }
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <h1>JavaScript Automated Animation</h1>
+    <form>
+        <p>Click to see animation</p>
+        <img id="butter" src="https://via.placeholder.com/100" height="100px" width="100px" />
+        <input type="button" value="Start" onclick="moveRight();" />
+        <input type="button" value="Stop" onclick="stop();" />
+    </form>
+</body>
+</html>
